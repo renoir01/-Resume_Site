@@ -1,10 +1,23 @@
-let nemuIcon =  document.querySelectorAll('.nemu-icon');
-let navbar = document.querySelector( '.navbar' );
+document.addEventListener('DOMContentLoaded', function() {
+    // Select the menu button and the navbar
+    const menuBtn = document.getElementById('menu-btn');
+    const navbar = document.querySelector('.navbar');
 
-MediaElementAudioSourceNode.onclick =()=>{
-    MediaElementAudioSourceNode.classList.toggle('fa-xmark')
-   navbar.classList.toggle("active");
-}
+    // Add event listener to the menu button for click events
+    menuBtn.addEventListener('click', function() {
+        // Toggle the 'active' class on the navbar when the menu button is clicked
+        navbar.classList.toggle('active');
+    });
+
+    // Add event listener to the window for resize events
+    window.addEventListener('resize', function() {
+        // Check if the window width is greater than 768 pixels
+        if (window.innerWidth > 768) {
+            // If it is, remove the 'active' class from the navbar
+            navbar.classList.remove('active');
+        }
+    });
+});
 
 
 let sections = document.querySelectorAll(".section") ;
@@ -62,6 +75,8 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         });
     });
 });
+
+
 
 // Form validation
 const form = document.querySelector('form');
